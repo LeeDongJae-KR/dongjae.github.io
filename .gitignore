@@ -3,4 +3,5 @@ _site/
 .jekyll-metadata
 garth-jekyll-theme-*.gem
 Gemfile.lock
+.obsidian
 **/Gemfile.lock

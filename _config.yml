@@ -1,13 +1,4 @@
-# Site configuration
-# 1. Files excluded from Jekyll builds
-# 2. Installed Gems
-# 3. Gem settings
-# 4. Jekyll settings
-# 5. Collections
-# 6. Jekyll collections settings
-# 7. Site settings
-
-# 1. Files excluded from Jekyll builds
+# 빌드에서 제외할 파일
 exclude:
 - README.md
 - CODE_OF_CONDUCT.md
@@ -19,49 +10,50 @@ exclude:
 - Gemfile.lock
 - garth-jekyll-theme.gemspec
 
-# 2. Installed Gems
+# 플러그인
 plugins:
 - jekyll-paginate
 
-# 3. Gem settings
-paginate: 2 # jekyll-paginate > items per page
-paginate_path: page:num # jekyll-paginate > blog page
+# 페이지네이션 설정
+paginate: 2 # 한 페이지에 보여줄 글 개수
+paginate_path: page:num # 페이지 URL
 
-# 4. Jekyll settings
-sass:
-  style: compressed # Style compression
-permalink: pretty  # Permalink style (/YYYY/MM/DD/page-name/)
-excerpt_separator: <!-- more --> # Marks end of excerpt in posts
-timezone: Asia/Seoul # Timezone for blog posts and alike
+# Jekyll 기본 설정
+ssass:
+  style: compressed # CSS를 빌드할 때 압축해서 용량을 줄임
+permalink: pretty  # URL이 예쁘게 (/2025/07/02/글제목/) 형식으로 생성됨
+excerpt_separator: <!-- more --> # 글의 요약 부분을 나누는 기준 (<!-- more --> 이후는 본문)
+timezone: Asia/Seoul # 사이트의 시간대 (서울 시간)
 
-# 5. Collections
+# 소개글
 collections:
   posts:
-    title: Blog # Needed for Siteleaf
-    output: true
-    description: "This is merely a demo, find out more [about Garth](about)" # The post list page content
+    title: 새벽 코딩 # 사이트에서 이 컬렉션의 이름 (예: 메뉴명)
+    output: true # 최종 사이트에 이 컬렉션(글)이 출력되도록 함
+    description: "코드 쓰다 멘붕 에러랑 친구 맺고, 결국엔 돌아가는 개발 로그"
 
-# 6. Jekyll collections settings
+# 셋팅
 defaults:
   -
     scope:
       path: ""
       type: pages
     values:
-      layout: page # Default layout
+      layout: page # 일반 페이지의 기본 레이아웃은 'page'
   -
     scope:
       path: ""
       type: posts
     values:
-      layout: post # Default layout
+      layout: post # 블로그 글의 기본 레이아웃은 'post'
 
-# 7. Site settings
-encoding: utf-8 # Make sure the encoding is right
-title: "Garth" # Site name or title
-logo: "/assets/logo.svg" # Site logo
-# favicon: "/favicon.ico" # Uncomment to add custom favicon, or leave as is to use site logo
-description: "A really basic theme for Jekyll, using the official Jekyll theme implementation" # Site description and default description
-url: "https://leedongjae-kr.github.io" # Site url
-baseurl: "/dongjae.github.io"
-lang: ko
+# 사이트 설정 및 정보
+encoding: utf-8 # 사이트 인코딩 (글자가 깨지지 않게 UTF-8 사용)
+title: "에러는 내 운명" # 사이트 이름
+logo: "/assets/logo.svg" # 사이트 로고 이미지 경로
+# favicon: "/favicon.ico" # 파비콘 (브라우저 탭 아이콘), 주석처리되어 있음
+description: "왜 내 코드만 안 될까? 라는 질문으로 하루를 시작하고,드디어 된다! 라는 외침으로 하루를 마무리하는 사람이라면이 블로그가 당신의 동지입니다." # 사이트 설명
+url: "https://leedongjae-kr.github.io" # 사이트 기본 주소
+baseurl: "/dongjae.github.io" # 사이트의 하위 경로 (GitHub Pages용)
+lang: ko # 사이트 언어 (한국어)
+
